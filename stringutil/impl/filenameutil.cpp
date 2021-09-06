@@ -4,7 +4,13 @@ namespace stringutil
 {
 	std::string extensionFromFileName(const std::string& fileName, bool lowerCase)
 	{
-		return fileName;
+		std::string fileType = fileName;
+		int pos = fileName.find_last_of(".");
+		if (pos > 0 && pos < fileType.length()-1)
+		{
+			fileType = fileType.substr(pos + 1, fileType.length() - pos);
+		}
+		return fileType;
 	}
 
 	bool begins_with(const char* s1, const char* s2)
