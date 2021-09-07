@@ -22,5 +22,12 @@ else()
 								INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}
 								SOURCE_FOLDER
 								)
+								
+	if(INSTALL_STRINGUTIL)
+		INSTALL(TARGETS stringutil
+				LIBRARY DESTINATION lib
+				ARCHIVE DESTINATION .
+				RUNTIME DESTINATION bin)
+	endif()
 endif()
 
