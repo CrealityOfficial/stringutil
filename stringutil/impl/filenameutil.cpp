@@ -1,4 +1,5 @@
 #include "stringutil/filenameutil.h"
+#include <cstring>
 
 namespace stringutil
 {
