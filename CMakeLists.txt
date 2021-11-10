@@ -31,3 +31,7 @@ else()
 	endif()
 endif()
 
+if(CC_INSTALL_STRINGUTIL)
+	__install_directory_specif(${CMAKE_CURRENT_SOURCE_DIR}/ stringutil)
+endif()
+
