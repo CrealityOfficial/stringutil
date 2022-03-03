@@ -1,11 +1,23 @@
 #include "stringutil/util.h"
+#include<cctype>
 
 namespace stringutil
 {
+	std::string _changeCase(const std::string& value, bool lowerCase)
+	{
+		size_t len = value.length();
+		std::string newvalue(value);
+		for (std::string::size_type i = 0, l = newvalue.length(); i < l; ++i)
+			newvalue[i] = lowerCase ? tolower(newvalue[i]) : toupper(newvalue[i]);
+		return newvalue;
+	}
+
 	std::string toLowerCase(const std::string& str)
 	{
-		return str;
+		return _changeCase(str,true);
 	}
+
+
 
 	std::string trimHeadTail(const std::string& s)
 	{

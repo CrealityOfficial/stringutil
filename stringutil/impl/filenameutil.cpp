@@ -1,5 +1,6 @@
 #include "stringutil/filenameutil.h"
 #include <cstring>
+#include"stringutil/util.h"
 
 namespace stringutil
 {
@@ -10,6 +11,10 @@ namespace stringutil
 		if (pos > 0 && pos < fileType.length()-1)
 		{
 			fileType = fileType.substr(pos + 1, fileType.length() - pos);
+		}
+		if (lowerCase)
+		{
+			fileType = toLowerCase(fileType);
 		}
 		return fileType;
 	}
