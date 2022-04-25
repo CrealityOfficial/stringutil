@@ -5,31 +5,8 @@ set(SRCS stringutil/interface.h
 		 stringutil/impl/filenameutil.cpp
 		 )
 set(LIBS)
-set(DEFS)
 
-if(BUILD_STRINGUTIL_STATIC)
-	__add_real_target(stringutil lib SOURCE ${SRCS}
-								LIB ${LIBS}
-								DEF ${DEFS}
-								INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}
-								SOURCE_FOLDER
-								)
-else()
-	list(APPEND DEFS STRINGUTIL_DLL)
-	__add_real_target(stringutil dll SOURCE ${SRCS}
-								LIB ${LIBS}
-								DEF ${DEFS}
-								INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}
-								SOURCE_FOLDER
-								)
-								
-	if(INSTALL_STRINGUTIL)
-		INSTALL(TARGETS stringutil
-				LIBRARY DESTINATION lib
-				ARCHIVE DESTINATION .
-				RUNTIME DESTINATION bin)
-	endif()
-endif()
+__add_common_library(stringutil)
 
 if(CC_INSTALL_STRINGUTIL)
 	__install_directory_specif(${CMAKE_CURRENT_SOURCE_DIR}/ stringutil)
