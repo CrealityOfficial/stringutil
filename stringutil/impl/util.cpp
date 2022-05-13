@@ -17,7 +17,24 @@ namespace stringutil
 		return _changeCase(str,true);
 	}
 
-
+	bool str_replace(std::string& strContent, const char* pszOld, const char* pszNew)
+	{
+		std::string  strTemp;
+		std::string::size_type nPos = 0;
+		while (true)
+		{
+			nPos = strContent.find(pszOld, nPos);
+			strTemp = strContent.substr(nPos + strlen(pszOld), strContent.length());
+			if (nPos == std::string::npos)
+			{
+				break;
+			}
+			strContent.replace(nPos, strContent.length(), pszNew);
+			strContent.append(strTemp);
+			nPos += strlen(pszNew) - strlen(pszOld) + 1;
+		}
+		return true;
+	}
 
 	std::string trimHeadTail(const std::string& s)
 	{

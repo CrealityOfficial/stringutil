@@ -28,6 +28,7 @@ namespace stringutil
 	STRINGUTIL_API std::string extensionFromFileName(const std::string& fileName, bool lowerCase = false);
 	STRINGUTIL_API bool begins_with(const char* s1, const char* s2);
 
+	
 	STRINGUTIL_API void skip_comments(FILE* f);
 }
 
