@@ -1,5 +1,6 @@
 #include "stringutil/util.h"
 #include<cctype>
+#include<string.h>
 
 namespace stringutil
 {
