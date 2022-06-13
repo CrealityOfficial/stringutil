@@ -2,6 +2,10 @@
 #include<cctype>
 #include<string.h>
 
+#if WIN32
+#include <windows.h>
+#endif
+
 namespace stringutil
 {
 	std::string _changeCase(const std::string& value, bool lowerCase)
@@ -76,5 +80,21 @@ namespace stringutil
 			pos = find_pos + delim_len;
 		}
 		return elems;
+	}
+
+	std::string wstring2string(const std::wstring& wstr)
+	{
+		using convert_typeX = std::codecvt_utf8<wchar_t>;
+		std::wstring_convert<convert_typeX, wchar_t> converterX;
+
+		return converterX.to_bytes(wstr);
+	}
+
+	std::string wchar2char(const wchar_t* wp)
+	{
+		std::wstring tmpRuleStr = std::wstring(wp);
+		const std::string str = wstring2string(tmpRuleStr);
+
+		return str;
 	}
 }
