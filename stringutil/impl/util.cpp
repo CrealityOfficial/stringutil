@@ -1,6 +1,8 @@
 #include "stringutil/util.h"
-#include<cctype>
-#include<string.h>
+#include <cctype>
+#include <string.h>
+#include <locale>
+#include <codecvt>
 
 #if WIN32
 #include <windows.h>
